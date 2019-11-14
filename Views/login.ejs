@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    
+    <script>
+
+        if(getQueryParameter("fail") == "true"){
+            alert("Incorrect Login");
+        }
+
+        function getQueryParameter(name) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] === name){return pair[1];}
+            }
+            return false;
+        }
+    </script>
+    <link rel='stylesheet' href='styles.css'>
+</head>
+
+<body background='background.jpg'>
+    <div class='container'>
+        <h1>
+            <span class='header'>Login</span>
+        </h1>
+        <form action='post' method='post'>
+            <input type='text' name='name'>
+            <input type='text' name='password'>
+            <input type='submit'>
+        </form>            
+        <form action='sign' method='get'>
+            <input type='submit' value="Sign Up">
+        </form>
+    </div>
+</body>
+
+
+</html>
+

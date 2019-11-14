@@ -1,0 +1,69 @@
+<!-- HTML FILE -->
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+        $("#button").click(function(){
+            let n = $("#name").val();
+            let p = $("#pass").val();
+            $.ajax({
+                url : "http://localhost:3000/post",
+                type: "POST",
+                data : {name: n, password: p},
+                success: postProcess
+            });    
+        });
+
+        $("#button2").click(function(){
+            let n = $("#nameSign").val();
+            let p = $("#passSign").val();
+            $.ajax({
+                url : "http://localhost:3000/sign",
+                type: "POST",
+                data : {name: n, password: p},
+                success: postProcessSign
+            }); 
+        });
+
+    });
+
+    function postProcess(data,status) {
+        console.log(data);
+        console.log("Status:" + status);
+        $("#cont3").html("<div>" + data + "</div>");
+    }
+
+    function postProcessSign(data, status){
+        console.log(data);
+    }
+
+</script>
+</head>
+
+<body>
+    <div id='cont1'>
+        <div>Username: </div>
+        <input type='text'id='name'>
+        <div>Password: </div>
+        <input type='text'id='pass'><br>
+        <button id='button'>Login</button><br>
+    </div>
+    <div id='cont2'>
+        <div>Enter a Username:</div>
+        <input type='text' id='nameSign'>
+        <div>Enter a Password</div>
+        <input type='text' id='passSign'><br>
+        <button id='button2'>Sign Up</button>
+    </div>
+    <div id='cont3'>
+
+    </div>
+
+</body>
+
+
+</html>
+

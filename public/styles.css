@@ -1,0 +1,17 @@
+.container{
+    margin: auto;
+    text-align: center;
+}
+
+.header{
+    text-shadow: 2px, 2px, 10px, #FFFFFF;
+    background-color: whitesmoke;
+}
+
+#home{
+    background-color: aliceblue;
+}
+
+/* table, th, td{
+    border: 1px, solid, black;
+} */

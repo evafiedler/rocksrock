@@ -1,0 +1,68 @@
+<head>
+    <link rel='stylesheet' href='styles.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+your rocks :)
+
+<script>
+function incrementRock(rockId,userId) {
+
+    //use this to increment rock number, do it by user or rock?
+    $.ajax({
+        url: "localhost:3000/increment", //your post route
+        data: {
+            userName: userId,
+            rockName: rockId
+        },
+        success: alert ("Done"),
+        method: "POST",
+        crossDomain: true 
+
+    });
+
+    document.getElementById("num").innerHTML++;
+    //refresh page or do a innerHTML increment
+
+}
+
+</script>
+
+
+<table style="border:1px black solid">
+    <tr>
+        <th style="border:1px black solid">Type</th>
+        <th style="border:1px black solid">Color</th>
+        <th style="border:1px black solid">Rarity</th>
+    </tr>
+    <% for(var i=0; i<arr.length; i++) { %>
+        <tr>
+            <td style="border:1px black solid"><%= arr[i].rockName %></td>
+            <td style="border:1px black solid"><%= arr[i].rockColor %></td>
+            <td style="border:1px black solid" id='num'><%= arr[i].rockNum %></td>
+            <!-- <td style="border:1px black solid"><button onclick='incrementRock("<%= arr[i].rockName %>", "<%= arr[i].userName %>")'>Add One</button></td> -->
+            <!-- <td><form action='add' method='post'>
+
+            </form></td> -->
+        </tr>
+    <% } %>
+</table>
+
+Add Rock
+<form action='add' method='post'>
+    Rock Type:
+    <input type='text' name='rockName'><br>
+    Rock Color:
+    <input type='text' name='rockColor'><br>
+    Rock Rarity:
+    <input type='text' name='rockNum'><br>
+    <input type='submit' value='Enter new rock'>
+</form>
+
+Delete Rock
+<form action='remove' method='post'>
+    Rock Type:
+    <input type='text' name='rockType'>
+    <input type='submit' value='Delete'>
+</form>
+</body>
