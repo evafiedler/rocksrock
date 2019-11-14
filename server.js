@@ -9,7 +9,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 require('./routes/routes.js')(app);
 
-mongoose.connect("mongodb+srv://useruno:passuno@cluster0-0l28s.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("la");
 
 app.listen(3000);
-console.log("Listening at localhost:3000")
+console.log("Listening at localhost:3000");
